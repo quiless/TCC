@@ -3,20 +3,13 @@ package com.quiles.workout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,7 +18,9 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-public class Exercicios extends AppCompatActivity {
+
+
+public class ExerciciosIntermediarios extends AppCompatActivity {
 
     ListView listaExercicios;
     String exercicioSelecionado;
@@ -52,7 +47,7 @@ public class Exercicios extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavUtils.navigateUpFromSameTask(Exercicios.this);
+                NavUtils.navigateUpFromSameTask(ExerciciosIntermediarios.this);
             }
         });
 
@@ -61,108 +56,106 @@ public class Exercicios extends AppCompatActivity {
         treinoSelecionado = getIntent().getExtras().getInt("numeroTreino");
         treinoEscolhido = getIntent().getExtras().getString("treinoEscolhido");
 
-        Toast.makeText(Exercicios.this, "" + treinoEscolhido, Toast.LENGTH_SHORT).show();
-
         String [] listaExercicio = {};
 
         switch (treinoSelecionado){
             case 0: listaExercicio = new String[]{
-                    "Ombro 1",
-                    "Ombro 2",
-                    "Ombro 3",
-                    "Ombro 4",
-                    "Ombro 5",
-                    "Ombro 6"
+                    "Ombro 1 Intermediario",
+                    "Ombro 2 Intermediario",
+                    "Ombro 3 Intermediario",
+                    "Ombro 4 Intermediario",
+                    "Ombro 5 Intermediario",
+                    "Ombro 6 Intermediario"
 
             };
                 break;
             case 1: listaExercicio = new String[]{
-                    "Costas 1",
-                    "Costas 2",
-                    "Costas 3",
-                    "Costas 4",
-                    "Costas 5",
-                    "Costas 6"
+                    "Costas 1 Intermediario",
+                    "Costas 2 Intermediario",
+                    "Costas 3 Intermediario",
+                    "Costas 4 Intermediario",
+                    "Costas 5 Intermediario",
+                    "Costas 6 Intermediario "
 
             };
                 break;
             case 2: listaExercicio = new String[]{
-                    "Trapézio 1",
-                    "Trapézio 2",
-                    "Trapézio 3",
-                    "Trapézio 4",
-                    "Trapézio 5",
-                    "Trapézio 6"
+                    "Trapézio 1 Intermediario",
+                    "Trapézio 2 Intermediario",
+                    "Trapézio 3 Intermediario",
+                    "Trapézio 4 Intermediario",
+                    "Trapézio 5 Intermediario",
+                    "Trapézio 6 Intermediario"
 
             };
                 break;
             case 3: listaExercicio = new String[]{
-                    "Biceps 1",
-                    "Biceps 2",
-                    "Biceps 3",
-                    "Biceps 4",
-                    "Biceps 5",
-                    "Biceps 6"
+                    "Biceps 1 Intermediario",
+                    "Biceps 2 Intermediario",
+                    "Biceps 3 Intermediario",
+                    "Biceps 4 Intermediario",
+                    "Biceps 5 Intermediario",
+                    "Biceps 6 Intermediario"
 
             };
                 break;
             case 4: listaExercicio = new String[]{
-                    "Triceps 1",
-                    "Triceps 2",
-                    "Triceps 3",
-                    "Triceps 4",
-                    "Triceps 5",
-                    "Triceps 6"
+                    "Triceps 1 Intermediario",
+                    "Triceps 2 Intermediario",
+                    "Triceps 3 Intermediario",
+                    "Triceps 4 Intermediario",
+                    "Triceps 5 Intermediario",
+                    "Triceps 6 Intermediario"
 
             };
                 break;
             case 5: listaExercicio = new String[]{
-                    "Antebraço 1",
-                    "Antebraço 2",
-                    "Antebraço 3",
-                    "Antebraço 4",
-                    "Antebraço 5",
-                    "Antebraço 6"
+                    "Antebraço 1 Intermediario",
+                    "Antebraço 2 Intermediario",
+                    "Antebraço 3 Intermediario",
+                    "Antebraço 4 Intermediario",
+                    "Antebraço 5 Intermediario",
+                    "Antebraço 6 Intermediario"
 
             };
                 break;
             case 6: listaExercicio = new String[]{
-                    "Perna 1",
-                    "Perna 2",
-                    "Perna 3",
-                    "Perna 4",
-                    "Perna 5",
-                    "Perna 6"
+                    "Perna 1 Intermediario",
+                    "Perna 2 Intermediario",
+                    "Perna 3 Intermediario",
+                    "Perna 4 Intermediario",
+                    "Perna 5 Intermediario",
+                    "Perna 6 Intermediario"
 
             };
                 break;
             case 7: listaExercicio = new String[]{
-                    "Abdominal Obliquo 1",
-                    "Abdominal Obliquo 2",
-                    "Abdominal Obliquo 3",
-                    "Abdominal Obliquo 4",
-                    "Abdominal Obliquo 5",
-                    "Abdominal Obliquo 6"
+                    "Abdominal Obliquo 1 Intermediario",
+                    "Abdominal Obliquo 2 Intermediario",
+                    "Abdominal Obliquo 3 Intermediario",
+                    "Abdominal Obliquo 4 Intermediario",
+                    "Abdominal Obliquo 5 Intermediario",
+                    "Abdominal Obliquo 6 Intermediario"
 
             };
                 break;
             case 8: listaExercicio = new String[]{
-                    "Abdominal  1",
-                    "Abdominal  2",
-                    "Abdominal  3",
-                    "Abdominal  4",
-                    "Abdominal  5",
-                    "Abdominal  6"
+                    "Abdominal  1 Intermediario",
+                    "Abdominal  2 Intermediario",
+                    "Abdominal  3 Intermediario",
+                    "Abdominal  4 Intermediario",
+                    "Abdominal  5 Intermediario",
+                    "Abdominal  6 Intermediario"
 
             };
                 break;
             default: listaExercicio = new String[]{
-                    "Treino  1",
-                    "Treino  2",
-                    "Treino  3",
-                    "Treino  4",
-                    "Treino  5",
-                    "Treino  6"
+                    "Treino  1 Intermediario",
+                    "Treino  2 Intermediario",
+                    "Treino  3 Intermediario",
+                    "Treino  4 Intermediario",
+                    "Treino  5 Intermediario",
+                    "Treino  6 Intermediario"
             };
                 break;
         }
@@ -190,7 +183,7 @@ public class Exercicios extends AppCompatActivity {
     }
 
     public void treinoRun(View view){
-        Intent intent = new Intent(Exercicios.this, TreinoRun.class);
+        Intent intent = new Intent(ExerciciosIntermediarios.this, TreinoRunIntermediario.class);
         intent.putExtra("numeroTreino", treinoSelecionado);
         intent.putExtra("treinoEscolhido", treinoEscolhido);
         startActivity(intent);
@@ -198,7 +191,7 @@ public class Exercicios extends AppCompatActivity {
 
 
     public void loadTelaVideos(){
-        Intent i = new Intent(getApplicationContext(), TelaVideos.class);
+        Intent i = new Intent(getApplicationContext(), TelaVideosIntermediario.class);
         i.putExtra("nomeVideo", exercicioSelecionado);
         i.putExtra("numeroTreino", treinoSelecionado);
         i.putExtra("posicao", itemPosition);

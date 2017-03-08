@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.quiles.workout.MainActivity">
+    <item
+        android:id="@+id/iniciante"
+        android:orderInCategory="100"
+        android:title="Iniciante"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/intermediario"
+        android:orderInCategory="100"
+        android:title="Intermediário"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/avancado"
+        android:orderInCategory="100"
+        android:title="Avançado"
+        app:showAsAction="never" />
+
+</menu>

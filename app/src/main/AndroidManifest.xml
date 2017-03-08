@@ -3,6 +3,7 @@
     package="com.quiles.workout">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -22,14 +23,12 @@
         <activity
             android:name=".TelaPrincipal"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Login"
             android:label="@string/title_activity_login"
             android:parentActivityName=".TelaPrincipal"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CriarConta"
             android:label="@string/title_activity_criar_conta"
@@ -41,6 +40,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -63,6 +63,57 @@
             android:name=".Exercicios"
             android:label="    Seleciona o exercício"
             android:parentActivityName=".Treino"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ExerciciosIntermediarios"
+            android:label="    Seleciona o exercício"
+            android:parentActivityName=".TreinoIntermediario"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ExerciciosAvancados"
+            android:label="    Seleciona o exercício"
+            android:parentActivityName=".TreinoAvancado"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TreinoRun"
+            android:label="@string/title_activity_treino_run"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TreinoRunAvancado"
+            android:label="@string/title_activity_treino_run"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TreinoRunIntermediario"
+            android:label="@string/title_activity_treino_run"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TelaVideos"
+            android:label="@string/title_activity_tela_videos"
+            android:parentActivityName=".Exercicios"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TelaVideosIntermediario"
+            android:label="@string/title_activity_tela_videos"
+            android:parentActivityName=".ExerciciosIntermediarios"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TelaVideosAvancado"
+            android:label="@string/title_activity_tela_videos"
+            android:parentActivityName=".ExerciciosAvancados"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TreinoIntermediario"
+            android:label="@string/title_activity_treino_intermediario"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TreinoAvancado"
+            android:label="Treino Avançado"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Historico"
+            android:label="@string/title_activity_historico"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

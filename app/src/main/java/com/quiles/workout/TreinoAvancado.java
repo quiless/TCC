@@ -2,8 +2,6 @@ package com.quiles.workout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,7 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class Treino extends AppCompatActivity {
+
+public class TreinoAvancado extends AppCompatActivity {
 
     ListView listaTreino;
     String treinoSelecionado;
@@ -33,22 +32,22 @@ public class Treino extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavUtils.navigateUpFromSameTask(Treino.this);
+                NavUtils.navigateUpFromSameTask(TreinoAvancado.this);
             }
         });
 
         listaTreino = (ListView) findViewById(R.id.list_view);
         String[] listaExercicios = {
-                "Ombro",
-                "Costas",
-                "Trapézio",
-                "Biceps",
-                "Triceps",
-                "Biceps",
-                "Antebraço",
-                "Perna",
-                "Abdominal Obliquio",
-                "Outro Abdominal"
+                "Ombro Avancado",
+                "Costas Avancado",
+                "Trapézio Avancado",
+                "Biceps Avancado",
+                "Triceps Avancado",
+                "Biceps Avancado",
+                "Antebraço Avancado",
+                "Perna Avancado",
+                "Abdominal Obliquio Avancado",
+                "Outro Abdominal Avancado"
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, listaExercicios);
@@ -57,9 +56,9 @@ public class Treino extends AppCompatActivity {
         listaTreino.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               numeroTreino = position;
+                numeroTreino = position;
                 treinoEscolhido = "" + listaTreino.getItemAtPosition(position);
-                Toast.makeText(Treino.this, "" + treinoEscolhido, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Hello" + String.valueOf(position), Toast.LENGTH_LONG).show();
                 loadTelaExercicios();
             }
         });
@@ -68,7 +67,7 @@ public class Treino extends AppCompatActivity {
     }
 
     public void loadTelaExercicios(){
-        Intent i = new Intent(getApplicationContext(), Exercicios.class);
+        Intent i = new Intent(getApplicationContext(), ExerciciosAvancados.class);
         i.putExtra("numeroTreino", numeroTreino);
         i.putExtra("treinoEscolhido", treinoEscolhido);
         startActivity(i);
@@ -80,5 +79,4 @@ public class Treino extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 }

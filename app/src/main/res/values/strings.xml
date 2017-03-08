@@ -9,4 +9,17 @@
     <string name="title_activity_nivel_masculino">NivelMasculino</string>
     <string name="title_activity_treino">Treino</string>
     <string name="title_activity_exercicios">Exercicios</string>
+    <string name="title_activity_treino_run">TreinoRun</string>
+
+    <string-array name="lista_exercicios">
+        <item>Ombro</item>
+        <item>Perna</item>
+        <item>Biceps</item>
+        <item>Triceps</item>
+        <item>Costas</item>
+        <item>Abdominal</item>
+    </string-array>
+    <string name="title_activity_tela_videos">TelaVideos</string>
+    <string name="title_activity_treino_intermediario">TreinoIntermediario</string>
+    <string name="title_activity_historico">Historico</string>
 </resources>

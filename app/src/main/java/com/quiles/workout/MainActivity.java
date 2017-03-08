@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
@@ -31,11 +34,8 @@ public class MainActivity extends AppCompatActivity {
     String id;
     Boolean valor;
     Boolean firebase;
-
     private FirebaseDatabase database;
     private DatabaseReference myRef;
-
-
     AccessToken accessToken;
 
     @Override
@@ -63,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
     public void sair(View view) {
         LoginManager.getInstance().logOut();
         finish();
+    }
+
+    public void treino(View view) {
+        Intent intent = new Intent(MainActivity.this, Historico.class);
+        startActivity(intent);
     }
 
     @Override
@@ -109,4 +114,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void popup(View view){
+        PopupMenu popupMenu  = new PopupMenu(this,view);
+        MenuInflater menuInflater = popupMenu.getMenuInflater();
+        menuInflater.inflate(R.menu.menunivel,popupMenu.getMenu());
+        popupMenu.show();
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.iniciante:
+                        Intent i = new Intent(MainActivity.this, Treino.class);
+                        startActivity(i);
+                        return true;
+                    case R.id.intermediario:
+                        Intent j = new Intent(MainActivity.this,TreinoIntermediario.class);
+                        startActivity(j);
+                        return true;
+                    case R.id.avancado:
+                        Intent k = new Intent(MainActivity.this,TreinoAvancado.class);
+                        startActivity(k);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
+    }
 }
